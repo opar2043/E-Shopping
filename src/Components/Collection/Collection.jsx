@@ -1,8 +1,11 @@
+import Title from "../Shared/Title"
 
 
 const Collection = () => {
   return (
-    <div>Collection</div>
+    <div>
+      
+    </div>
   )
 }
 
