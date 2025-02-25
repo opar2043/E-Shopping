@@ -5,6 +5,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
+// import {
+
+//   QueryClient,
+//   QueryClientProvider,
+// } from 'react-query'
+
+// const queryClient = new QueryClient()
+
 import Root from './Components/Root/Root';
 import Error from './Components/Root/Error';
 import Home from './Components/Home/Home';
@@ -33,6 +42,11 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>
+      },
+      {
+        path: "/view/:id",
+        
+        element: <Contact></Contact>
       }
     ]
   },
@@ -40,6 +54,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router} />
+        {/* <QueryClientProvider client={queryClient}> */}
+        <RouterProvider router={router} />
+    {/* </QueryClientProvider> */}
   </StrictMode>,
 )

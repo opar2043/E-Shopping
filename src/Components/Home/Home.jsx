@@ -4,6 +4,7 @@ import Title from '../Shared/Title'
 import Banner from './Banner'
 import Card from '../Collection/Card';
 import Subscribe from '../Root/Subscribe';
+import Policy from './Policy';
 
 const Home = () => {
   const [card , setCard] = useState([]);
@@ -24,10 +25,10 @@ const Home = () => {
         <Title head={'Our'} head2={'Collection'} para={'Check our latest arraivals to know aboutb us!'}></Title>
          <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
             {
-              card && card.map(( car , idx) => <Card key={idx} img={car.image} price={car.price} name={car.name}></Card>)
+              card && card.slice(0,12).map(( car , idx) => <Card key={idx} img={car.image} price={car.price} name={car.name}></Card>)
             }
          </div>
-
+         <Policy></Policy>
          <Subscribe></Subscribe>
     </div>
   )
