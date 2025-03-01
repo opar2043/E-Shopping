@@ -1,13 +1,29 @@
-import { NavLink } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
+import { FaRegUserCircle } from "react-icons/fa";
 const Navbar = () => {
   const links = (
     <>
-    <NavLink to={'/'}><li><a>Home</a></li></NavLink>
-    <NavLink to={'/collection'}><li><a>Collection</a></li></NavLink>
-    <NavLink to={'/about'}><li><a>About</a></li></NavLink>
-    <NavLink to={'/contact'}><li><a>Contact</a></li></NavLink>
-</>
+      <NavLink to={"/"}>
+        <li>
+          <a>Home</a>
+        </li>
+      </NavLink>
+      <NavLink to={"/collection"}>
+        <li>
+          <a>Collection</a>
+        </li>
+      </NavLink>
+      <NavLink to={"/about"}>
+        <li>
+          <a>About</a>
+        </li>
+      </NavLink>
+      <NavLink to={"/contact"}>
+        <li>
+          <a>Contact</a>
+        </li>
+      </NavLink>
+    </>
   );
 
   return (
@@ -23,7 +39,12 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
           </button>
           <ul
@@ -33,7 +54,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost text-xl">daisyUI</NavLink>
+        <NavLink to="/" className="btn btn-ghost text-xl">
+          daisyUI
+        </NavLink>
       </div>
 
       {/* Center - Navigation Links */}
@@ -43,6 +66,12 @@ const Navbar = () => {
 
       {/* Right Side - Cart Dropdown */}
       <div className="navbar-end">
+        
+        <div>
+          <button className="btn-xs">
+            <Link to={'/login'} className="btn-xs text-lg"><FaRegUserCircle /></Link>
+          </button>
+        </div>
         <div className="dropdown dropdown-end">
           {/* Cart Button */}
           <button tabIndex={0} className="btn btn-ghost btn-circle">
@@ -64,13 +93,13 @@ const Navbar = () => {
               <span className="badge badge-sm indicator-item">8</span>
             </div>
           </button>
-          
+
           {/* Cart Dropdown Content */}
           <div
             tabIndex={0}
-            className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow p-4"
+            className="card card-compact  dropdown-content bg-base-300 z-[10] mt-3 w-52 shadow p-4"
           >
-            <div className="card-body">
+            <div className="card-body ">
               <span className="text-lg font-bold">8 Items</span>
               <span className="text-info">Subtotal: $999</span>
               <div className="card-actions">
@@ -78,7 +107,6 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -86,5 +114,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

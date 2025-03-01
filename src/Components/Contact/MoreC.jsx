@@ -1,5 +1,3 @@
-import React from "react";
-
 const MoreC = () => {
   return (
     <div className="p-6 md:p-10  rounded-lg shadow-md my-10 md:my-20">
@@ -11,6 +9,7 @@ const MoreC = () => {
         <h3 className="text-lg font-medium text-slate-900">📍 Location</h3>
         <p className="text-gray-800">123 Business Street, Dhaka, Bangladesh</p>
       </div>
+
 
       {/* Company Activities */}
       <div className="mt-4">

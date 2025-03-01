@@ -20,6 +20,8 @@ import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Collection from './Components/Collection/Collection';
 import Contact from './Components/Contact/Contact';
+import Login from './Components/Firebase/Login';
+import Register from './Components/Firebase/Register';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
       },
       {
         path: "/view/:id",
