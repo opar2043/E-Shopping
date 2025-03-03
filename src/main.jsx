@@ -25,6 +25,7 @@ import Register from './Components/Firebase/Register';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Item from './Components/Dashboard/Item/Item';
 import AddItem from './Components/Dashboard/AddItem';
+import AuthProvider from './Components/Provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -57,8 +58,7 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path: "/view/:id",
-        
+        path: "/view/:id",      
         element: <Contact></Contact>
       }
     ]
@@ -90,7 +90,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
         {/* <QueryClientProvider client={queryClient}> */}
-        <RouterProvider router={router} />
+        <AuthProvider>
+            <RouterProvider router={router} />
+        </AuthProvider>
     {/* </QueryClientProvider> */}
   </StrictMode>,
 )

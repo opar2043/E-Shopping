@@ -1,11 +1,44 @@
+import toast, { Toaster } from "react-hot-toast";
 import useProducts from "../../Hooks/useProducts";
+import useAxios from "../../Hooks/useAxios";
+import Swal from "sweetalert2";
 
 const Item = () => {
   const [products] = useProducts();
   console.log(products);
+
+  const axiosSecure = useAxios()
+
+  function handleDelete(id){
+    console.log(id);
+  
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/products/${id}`)
+        .then(res => {
+          toast.error('Successfully Deleted')
+        })
+      }
+    });
+
+
+
+
+  }
+
   return (
 <div>
       <h2>All Products</h2>
+      <Toaster position="top-center" reverseOrder={false} />
       <div>
         <div className="overflow-x-auto">
           <table className="table">
@@ -40,7 +73,9 @@ const Item = () => {
                     <td>{item.name}</td>
                     <td>{item.category}</td>
                     <th className="">
-                      <button className="btn btn-xs text-red-500">X</button>
+                      <button
+                      onClick={()=>handleDelete(item._id)}
+                      className="btn btn-xs text-red-500">X</button>
                     </th>
                   </tr>
                 ))}
