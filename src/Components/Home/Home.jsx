@@ -17,7 +17,7 @@ const Home = () => {
       setCard(data)
     })
   },[])
-  console.log(card);
+  // console.log(card);
 
   return (
     <div>

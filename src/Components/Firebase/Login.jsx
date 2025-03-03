@@ -23,7 +23,7 @@ const Login = () => {
       <div className="relative">
         <input
           type="email"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
+          className="w-full rounded-lg border border-gray-400 p-4 pe-12 text-sm shadow-xs"
           placeholder="Enter email"
         />
 
@@ -52,7 +52,7 @@ const Login = () => {
       <div className="relative">
         <input
           type="password"
-          className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
+          className="w-full rounded-lg border border-gray-400 p-4 pe-12 text-sm shadow-xs"
           placeholder="Enter password"
         />
 
@@ -96,7 +96,7 @@ const Login = () => {
       </button>
     </div>
     <div className='mx-auto'>
-        <button className='text-center btn btn-outline w-full'><FaGoogle></FaGoogle>Google</button>
+        <button className='text-center btn btn-outline w-full border border-gray-400'><FaGoogle></FaGoogle>Google</button>
     </div>
   </form>
 </div>

@@ -22,6 +22,9 @@ import Collection from './Components/Collection/Collection';
 import Contact from './Components/Contact/Contact';
 import Login from './Components/Firebase/Login';
 import Register from './Components/Firebase/Register';
+import Dashboard from './Components/Dashboard/Dashboard';
+import Item from './Components/Dashboard/Item/Item';
+import AddItem from './Components/Dashboard/AddItem';
 
 const router = createBrowserRouter([
   {
@@ -60,6 +63,28 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '/dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: '/dashboard/item',
+        element: <Item></Item>,
+      },
+      {
+        path: '/dashboard/user',
+        element: <Item></Item>,
+      },
+      {
+        path: '/dashboard/order',
+        element: <Item></Item>,
+      },
+      {
+        path: '/dashboard/additem',
+        element: <AddItem></AddItem>
+      },
+    ]
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

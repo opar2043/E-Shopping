@@ -22,7 +22,7 @@ const Register = () => {
         <div className="relative">
           <input
             type="email"
-            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
+            className="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-xs"
             placeholder="Enter email"
           />
 
@@ -51,7 +51,7 @@ const Register = () => {
         <div className="relative">
           <input
             type="password"
-            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
+            className="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-xs"
             placeholder="Enter password"
           />
 
@@ -87,7 +87,7 @@ const Register = () => {
         <div className="relative">
           <input
             type="url"
-            className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
+            className="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-xs"
             placeholder="Enter your Photo"
           />
 
