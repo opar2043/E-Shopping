@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ img, name, price }) => {
+const Card = ({ img, name, price , id }) => {
   return (
-    <Link>
+    <Link to={`/view/${id}`}>
       <div className="flex flex-col shadow rounded-md overflow-hidden">
         <div className="relative w-full h-60 overflow-hidden">
           <img

@@ -9,18 +9,18 @@ const AuthProvider = ({children}) => {
 
    const provider = new GoogleAuthProvider();
    function googleSignin(){
-    signInWithPopup(auth,provider);
+   return signInWithPopup(auth,provider);
     setLoading(true)
    }
 
    function handleRegister(email , pass){
-    createUserWithEmailAndPassword(auth , email , pass);
-    setLoading(true)
+      return createUserWithEmailAndPassword(auth , email , pass);
+       setLoading(true)
    }
 
 
    function handleLogin(email , pass){
-    signInWithEmailAndPassword(auth , email , pass);
+   return signInWithEmailAndPassword(auth , email , pass);
     setLoading(true)
    }
 

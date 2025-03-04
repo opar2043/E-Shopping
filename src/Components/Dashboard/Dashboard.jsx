@@ -8,7 +8,7 @@ import { BiPlusCircle, BiUnite } from "react-icons/bi";
 import { FiHome, FiInfo, FiPhoneCall, FiGrid } from "react-icons/fi";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const isAdmin = false;
 
   return (
     <div className="flex flex-col md:flex-row bg-gray-100">
@@ -97,7 +97,7 @@ const Dashboard = () => {
                 </NavLink> */}
 
                 <NavLink
-                  to="/my-orders"
+                  to="/dashboard/my-order"
                   className={({ isActive }) =>
                     `flex items-center gap-3 p-3 rounded-lg transition ${
                       isActive ? "bg-gray-800" : "hover:bg-gray-800"
@@ -105,7 +105,7 @@ const Dashboard = () => {
                   }
                 >
                   <AiOutlineShoppingCart size={22} />
-                  <span>My Orders</span>
+                  <span>My-Orders </span>
                 </NavLink>
 
                 <NavLink

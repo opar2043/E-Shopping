@@ -5,14 +5,9 @@ import Swal from "sweetalert2";
 
 const Item = () => {
   const [products] = useProducts();
-  console.log(products);
+  const axiosSecure = useAxios();
 
-  const axiosSecure = useAxios()
-
-  function handleDelete(id){
-    console.log(id);
-  
-
+  function handleDelete(id) {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -20,68 +15,61 @@ const Item = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.delete(`/products/${id}`)
-        .then(res => {
-          toast.error('Successfully Deleted')
-        })
+        axiosSecure.delete(`/products/${id}`).then(() => {
+          toast.error("Successfully Deleted");
+        });
       }
     });
-
-
-
-
   }
-
+  
   return (
-<div>
-      <h2>All Products</h2>
+    <div className="p-6 bg-gray-100 min-h-screen">
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">All Products</h2>
       <Toaster position="top-center" reverseOrder={false} />
-      <div>
-        <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>img</th>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {products &&
-                products.map((item, idx) => (
-                  <tr key={idx}>
-                    <td>{idx + 1}</td>
-                    <td>
-                      <div className="flex items-center gap-3">
-                        <div className="avatar">
-                          <div className="mask mask-squircle h-12 w-12">
-                            <img
-                              src={item.image}
-                              alt="Avatar Tailwind CSS Component"
-                            />
-                          </div>
-                        </div>
+      <div className="overflow-x-auto shadow-lg rounded-lg">
+        <table className="table-auto w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead className="bg-blue-500 text-white">
+            <tr>
+              <th className="px-6 py-3 text-left">#</th>
+              <th className="px-6 py-3 text-left">Image</th>
+              <th className="px-6 py-3 text-left">Name</th>
+              <th className="px-6 py-3 text-left">Category</th>
+              <th className="px-6 py-3 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="text-gray-700">
+            {products &&
+              products.map((item, idx) => (
+                <tr key={idx} className="border-b hover:bg-gray-100 transition">
+                  <td className="px-6 py-4">{idx + 1}</td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-3">
+                      <div className="h-12 w-12 rounded-md overflow-hidden shadow-md">
+                        <img
+                          src={item.image || "https://via.placeholder.com/150"}
+                          alt={item.name}
+                          className="object-cover w-full h-full"
+                        />
                       </div>
-                    </td>
-                    <td>{item.name}</td>
-                    <td>{item.category}</td>
-                    <th className="">
-                      <button
-                      onClick={()=>handleDelete(item._id)}
-                      className="btn btn-xs text-red-500">X</button>
-                    </th>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </div>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 font-medium">{item.name}</td>
+                  <td className="px-6 py-4">{item.category}</td>
+                  <td className="px-6 py-4">
+                    <button
+                      onClick={() => handleDelete(item._id)}
+                      className="px-4 py-2 text-sm text-white bg-red-500 rounded-md hover:bg-red-600 transition"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

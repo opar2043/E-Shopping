@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import Title from "../Shared/Title";
 import Card from "./Card";
+import useProducts from "../Hooks/useProducts";
 
 const Collection = () => {
   const [card, setCard] = useState([]);
+  const [products ] = useProducts([])
 
-  useEffect(() => {
-    fetch("./product.jsx")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCard(data);
-      });
-  }, []);
-  console.log(card);
+  // useEffect(() => {
+  //   fetch("./product.jsx")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setCard(data);
+  //     });
+  // }, []);
+  // console.log(card);
 
   return (
     <div className="flex flex-col md:flex-row my-10">
@@ -74,14 +76,15 @@ const Collection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-7 md:mt-12">
           {/* collection */}
-
-          {card &&
-            card.map((car, idx) => (
+{
+           products &&
+            products.map((car, idx) => (
               <Card
                 key={idx}
                 img={car.image}
                 price={car.price}
                 name={car.name}
+                id = {car._id}
               ></Card>
             ))}
         </div>

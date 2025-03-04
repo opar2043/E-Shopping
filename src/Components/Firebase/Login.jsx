@@ -1,11 +1,13 @@
 import React from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { handleLogin, user, setUser } = useAuth();
+  const { handleLogin, user, setUser, googleSignin } = useAuth();
+  const navigate = useNavigate()
   function handleSignIn(e) {
     e.preventDefault();
     const target = e.target;
@@ -16,15 +18,37 @@ const Login = () => {
         const myUser = userCredential.user;
         setUser(myUser);
         console.log(user);
+        Swal.fire({
+          title: "Logged In!",
+          icon: "success",
+          draggable: true,
+        });
+        navigate('/')
       })
       .catch((error) => {
         const errorMessage = error.message;
         toast.error("something happem wrong");
       });
   }
+
+
+  function handleGoogle() {
+       googleSignin()
+      .then((userCredential) => {
+        console.log("User created:", userCredential.user);
+        setUser(userCredential.user)
+        navigate('/')
+
+      })
+      .catch((error) => {
+        console.error("Error signing up:", error.message);
+
+      });
+  }
+  
   return (
     <div>
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 ">
+      <div className="mx-auto max-w-screen-xl bg-base-200 px-4 py-16 sm:px-6 lg:px-8 ">
         <div className="mx-auto max-w-lg text-center ">
           <h1 className="text-2xl font-bold sm:text-3xl">
             Started Shopping today!
@@ -33,7 +57,11 @@ const Login = () => {
           <p className="mt-4 text-gray-500">Connect to Us</p>
         </div>
 
-        <form onSubmit={handleSignIn} action="#" className="mx-auto mt-8 mb-0 max-w-md space-y-4  ">
+        <form
+          onSubmit={handleSignIn}
+          action="#"
+          className="mx-auto shadow p-3 rounded-md  mt-8 mb-0 max-w-md space-y-4  "
+        >
           <div>
             <label htmlFor="email" className="sr-only">
               Email
@@ -115,13 +143,15 @@ const Login = () => {
 
             <button
               type="submit"
-              className="inline-block btn-wide rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              className="w-full rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white"
             >
               Sign in
             </button>
           </div>
           <div className="mx-auto">
-            <button className="text-center btn btn-outline w-full border border-gray-400">
+            <button
+             onClick={()=>handleGoogle()}
+            className="text-center btn btn-outline w-full border border-gray-400">
               <FaGoogle></FaGoogle>Google
             </button>
           </div>
