@@ -3,7 +3,7 @@ import useCart from "../../Hooks/useCart";
 import useAxios from "../../Hooks/useAxios";
 import toast, { Toaster } from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
-import { FaEnvelope, FaTrash } from "react-icons/fa";
+import { FaCoins, FaEnvelope, FaTrash } from "react-icons/fa";
 
 const Order = () => {
   const [cart] = useCart([]) || [];
@@ -11,6 +11,8 @@ const Order = () => {
   const { user } = useAuth() || {};
 
   const userCart = cart.filter((car) => car?.email == user?.email) || [];
+  const totalPrice = userCart.reduce((sum, item) => sum + item.price, 0);
+  // console.log(totalPrice);
 
   function handleDelete(id) {
     Swal.fire({
@@ -32,18 +34,19 @@ const Order = () => {
 
   return (
     <div className="p-8 min-h-screen">
-<div className="bg-gradient-to-r from-slate-600 via-slate-500 to-slate-400 py-2 px-8 rounded-lg shadow-lg flex justify-between items-center mb-3">
-  <div className="flex items-center gap-3">
-    <FaEnvelope className="text-xl text-white" />
-    <span className="text-xl text-white">{user?.email}</span>
-  </div>
-  
-  <div className="bg-white text-slate-600 rounded-lg px-4 py-2 shadow-md">
-    <p className="text-lg font-medium">
-      Price: <span className="font-semibold text-gray-900">300</span>
-    </p>
-  </div>
-</div>
+      <div className="bg-gradient-to-r from-slate-600 via-slate-500 to-slate-400 py-2 px-8 rounded-lg shadow-lg flex justify-between items-center mb-3">
+        <div className="flex items-center gap-3">
+          <FaEnvelope className="text-xl text-white" />
+          <span className="text-xl text-white">{user?.email}</span>
+        </div>
+
+        <div className="bg-white text-slate-600 rounded-lg px-4 py-2 shadow-md">
+          <p className="text-lg font-medium flex items-center justify-center gap-2">
+            <FaCoins></FaCoins> Total Price:{" "}
+            <span className="font-semibold text-gray-900">{totalPrice}$</span>
+          </p>
+        </div>
+      </div>
       <Toaster position="top-center" reverseOrder={false} />
 
       <div className="overflow-x-auto shadow-2xl rounded-lg bg-white p-4">
@@ -77,13 +80,13 @@ const Order = () => {
                     </div>
                   </td>
                   <td className="px-6 py-4 font-medium">{item.name}</td>
-                  <td className="px-6 py-4">{item.category}</td>
+                  <td className="px-6 py-4">{item.price}$</td>
                   <td className="px-6 py-4">
                     <button
                       onClick={() => handleDelete(item._id)}
                       className="px-5 py-2 text-sm text-white bg-red-500 rounded-md hover:bg-red-600 transition"
                     >
-                      Delete
+                      <FaTrash></FaTrash>
                     </button>
                   </td>
                 </tr>

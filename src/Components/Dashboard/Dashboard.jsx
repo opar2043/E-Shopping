@@ -1,19 +1,32 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
   AiOutlineDashboard,
   AiOutlineUser,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
-import { BiPlusCircle, BiUnite } from "react-icons/bi";
+import { BiLogOut, BiPlusCircle, BiUnite } from "react-icons/bi";
 import { FiHome, FiInfo, FiPhoneCall, FiGrid } from "react-icons/fi";
+import useAuth from "../Hooks/useAuth";
 
 const Dashboard = () => {
-  const isAdmin = false;
+  const isAdmin = true;
+  const { handleLogout } = useAuth();
+  const navigate = useNavigate();
+  function logOut() {
+    handleLogout()
+      .then(() => {
+        console.log("User signed out successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error);
+      });
+  }
 
   return (
-    <div className="flex flex-col md:flex-row bg-gray-100">
+    <div className=" bg-gray-100 flex flex-col md:flex-row">
       {/* Sidebar */}
-      <div className="w-72 bg-gray-900 text-white p-6 flex  flex-col justify-between">
+      <div className="md:w-72 bg-gray-900 text-white p-6 flex  flex-col w-full h-auto">
         {/* Logo */}
         <div>
           <h2 className="text-2xl font-bold text-center mb-6">E-Shopping</h2>
@@ -22,7 +35,7 @@ const Dashboard = () => {
           <ul className="space-y-3">
             {isAdmin ? (
               <>
-                <NavLink
+                {/* <NavLink
                   to="/dashboard"
                   className={({ isActive }) =>
                     `flex items-center gap-3 p-3 rounded-lg transition ${
@@ -32,7 +45,7 @@ const Dashboard = () => {
                 >
                   <AiOutlineDashboard size={22} />
                   <span>Dashboard</span>
-                </NavLink>
+                </NavLink> */}
 
                 <NavLink
                   to="/dashboard/additem"
@@ -84,18 +97,6 @@ const Dashboard = () => {
               </>
             ) : (
               <>
-                {/* <NavLink
-                  to="/dashboard"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 p-3 rounded-lg transition ${
-                      isActive ? "bg-gray-800" : "hover:bg-gray-800"
-                    }`
-                  }
-                >
-                  <AiOutlineDashboard size={22} />
-                  <span>Dashboard</span>
-                </NavLink> */}
-
                 <NavLink
                   to="/dashboard/my-order"
                   className={({ isActive }) =>
@@ -121,7 +122,7 @@ const Dashboard = () => {
                 </NavLink>
 
                 <NavLink
-                  to="/profile"
+                  to="/dashboard/profile"
                   className={({ isActive }) =>
                     `flex items-center gap-3 p-3 rounded-lg transition ${
                       isActive ? "bg-gray-800" : "hover:bg-gray-800"
@@ -133,6 +134,14 @@ const Dashboard = () => {
                 </NavLink>
               </>
             )}
+
+            <button
+              onClick={() => logOut()}
+              className="flex items-center w-full gap-3 p-3 rounded-lg transition bg-red-500 text-white hover:bg-red-700 shadow-md"
+            >
+              <BiLogOut size={22}></BiLogOut>
+              <span>Log Out</span>
+            </button>
           </ul>
         </div>
 

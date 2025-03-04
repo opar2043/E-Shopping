@@ -4,15 +4,19 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import useAxios from "../Hooks/useAxios";
 
 const Login = () => {
   const { handleLogin, user, setUser, googleSignin } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const axiosSecure = useAxios();
+
   function handleSignIn(e) {
     e.preventDefault();
     const target = e.target;
     const pass = target.pass.value;
     const email = target.email.value;
+
     handleLogin(email, pass)
       .then((userCredential) => {
         const myUser = userCredential.user;
@@ -23,7 +27,7 @@ const Login = () => {
           icon: "success",
           draggable: true,
         });
-        navigate('/')
+        navigate("/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -31,21 +35,25 @@ const Login = () => {
       });
   }
 
-
   function handleGoogle() {
-       googleSignin()
+    googleSignin()
       .then((userCredential) => {
         console.log("User created:", userCredential.user);
-        setUser(userCredential.user)
-        navigate('/')
-
+        setUser(userCredential.user);
+        axiosSecure.post("/users", userCredential.user).then((res) => {
+          Swal.fire({
+            title: "Registered Successfully!",
+            icon: "success",
+            draggable: true,
+          });
+          navigate("/");
+        });
       })
       .catch((error) => {
         console.error("Error signing up:", error.message);
-
       });
   }
-  
+
   return (
     <div>
       <div className="mx-auto max-w-screen-xl bg-base-200 px-4 py-16 sm:px-6 lg:px-8 ">
@@ -143,15 +151,16 @@ const Login = () => {
 
             <button
               type="submit"
-              className="w-full rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white"
+              className="btn-wide rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white"
             >
               Sign in
             </button>
           </div>
           <div className="mx-auto">
             <button
-             onClick={()=>handleGoogle()}
-            className="text-center btn btn-outline w-full border border-gray-400">
+              onClick={() => handleGoogle()}
+              className="text-center btn btn-outline w-full border border-gray-400"
+            >
               <FaGoogle></FaGoogle>Google
             </button>
           </div>

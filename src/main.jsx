@@ -29,6 +29,8 @@ import AuthProvider from './Components/Provider/AuthProvider';
 import User from './Components/Dashboard/User/User';
 import View from './Components/Collection/View';
 import Order from './Components/Dashboard/Order/Order';
+import Profile from './Components/Dashboard/Profile/Profile';
+import COrder from './Components/Dashboard/cusOrder/COrder';
 
 const router = createBrowserRouter([
   {
@@ -87,8 +89,16 @@ const router = createBrowserRouter([
         element: <AddItem></AddItem>
       },
       {
+        path: '/dashboard/order',
+        element: <COrder></COrder>
+      },
+      {
         path: '/dashboard/my-order',
         element: <Order></Order>
+      },
+      {
+        path: '/dashboard/profile',
+        element: <Profile></Profile>
       },
     ]
   }

@@ -25,7 +25,7 @@ const Home = () => {
         <Title head={'Our'} head2={'Collection'} para={'Check our latest arraivals to know aboutb us!'}></Title>
          <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
             {
-              card && card.slice(0,12).map(( car , idx) => <Card key={idx} img={car.image} price={car.price} name={car.name}></Card>)
+              card && card.slice(0,12).map(( car , idx) => <Card key={idx}  img={car.image} price={car.price} name={car.name} id={car._id}></Card>)
             }
          </div>
          <Policy></Policy>
