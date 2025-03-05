@@ -110,18 +110,6 @@ const Dashboard = () => {
                 </NavLink>
 
                 <NavLink
-                  to="/wishlist"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 p-3 rounded-lg transition ${
-                      isActive ? "bg-gray-800" : "hover:bg-gray-800"
-                    }`
-                  }
-                >
-                  <BiPlusCircle size={22} />
-                  <span>Wishlist</span>
-                </NavLink>
-
-                <NavLink
                   to="/dashboard/profile"
                   className={({ isActive }) =>
                     `flex items-center gap-3 p-3 rounded-lg transition ${

@@ -23,7 +23,7 @@ const Profile = () => {
           {/* User Info */}
           <h2 className="text-xl font-semibold text-slate-900 flex items-center gap-2">
             <FaUserCircle className="text-slate-600" />
-            {user?.displayName || "Rijoan Rashid Opar"}
+            {user?.displayName || "Rijoan Rashid Opar"} <span>(user)</span>
           </h2>
 
           <p className="text-slate-600 text-sm flex items-center gap-2">

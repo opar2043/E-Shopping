@@ -42,7 +42,7 @@ const AddItem = () => {
 
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <Toaster position="top-center" />
-      <div className="card bg-white w-full max-w-lg p-6 rounded-lg shadow-xl">
+      <div className="card bg-white w-full max-w-lg p-1 rounded-lg shadow-xl">
         <div className="card-body">
           <h2 className="text-2xl font-semibold text-center mb-6">
             Add New Product
