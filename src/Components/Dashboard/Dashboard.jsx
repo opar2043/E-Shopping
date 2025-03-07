@@ -12,6 +12,7 @@ const Dashboard = () => {
   const isAdmin = true;
   const { handleLogout } = useAuth();
   const navigate = useNavigate();
+  
   function logOut() {
     handleLogout()
       .then(() => {

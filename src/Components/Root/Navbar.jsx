@@ -133,67 +133,65 @@
 
 // export default Navbar;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
 import useCart from "../Hooks/useCart";
-import { BiCart } from "react-icons/bi";
+import { BiCart, BiLogOut } from "react-icons/bi";
 
 const Navbar = () => {
-  const { user } = useAuth();
+  const { user, handleLogout } = useAuth();
   const [carts] = useCart([]);
   const cart = carts.filter((car) => car.email === user?.email);
+  const navigate = useNavigate();
+
   const links = (
     <>
       <NavLink to={"/"}>
         <li>
           <a>Home</a>
         </li>
-        <hr className="border border-slate-700 w-8 mx-auto hidden" />
+        <hr className="border border-pink-500 w-8 mx-auto hidden" />
       </NavLink>
       <NavLink to={"/collection"}>
         <li>
           <a>Collection</a>
         </li>
-        <hr className="border border-slate-700 w-8 mx-auto hidden" />
+        <hr className="border border-pink-500 w-8 mx-auto hidden" />
       </NavLink>
       <NavLink to={"/about"}>
         <li>
           <a>About</a>
         </li>
-        <hr className="border border-slate-700 w-8 mx-auto hidden" />
+        <hr className="border border-pink-500 w-8 mx-auto hidden" />
       </NavLink>
       <NavLink to={"/contact"}>
         <li>
           <a>Contact</a>
         </li>
-        <hr className="border border-slate-700 w-8 mx-auto hidden" />
+        <hr className="border border-pink-500 w-8 mx-auto hidden" />
       </NavLink>
-      <NavLink to={"/dashboard"}>
-        <li>
-          <a>dashboard</a>
-        </li>
-        <hr className="border border-slate-700 w-8 mx-auto hidden" />
-      </NavLink>
+      {user && (
+        <NavLink to={"/dashboard"}>
+          <li>
+            <a>dashboard</a>
+          </li>
+          <hr className="border border-pink-500 w-8 mx-auto hidden" />
+        </NavLink>
+      )}
     </>
   );
 
+  function logOut() {
+    handleLogout()
+      .then(() => {
+        console.log("User signed out successfully");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error signing out:", error);
+      });
+  }
 
   return (
     <div className="navbar bg-base-100 shadow-md px-6">
@@ -218,7 +216,7 @@ const Navbar = () => {
           </button>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 w-52 p-2 shadow bg-white rounded-lg z-10"
+            className="menu menu-sm dropdown-content font-semibold mt-3 w-52 p-2 shadow bg-white rounded-lg z-10"
           >
             {links}
           </ul>
@@ -230,27 +228,50 @@ const Navbar = () => {
 
       {/* Center - Navigation Links */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal space-x-1">{links}</ul>
+        <ul className="menu menu-horizontal  font-semibold text-lg">{links}</ul>
       </div>
 
       {/* Right Side - Cart & Profile */}
       <div className="navbar-end flex items-center space-x-4">
         {/* Profile Picture */}
         <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-300 shadow-md">
-          <img
-            src={
-              user?.photoURL ||
-              "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            }
-            alt="User Avatar"
-            className="w-full h-full object-cover"
-          />
+          {user ? (
+            <img
+              src={
+                user?.photoURL ||
+                "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              }
+              alt="User Avatar"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <img
+              src={
+                user?.photoURL ||
+                "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              }
+              alt="User Avatar"
+              className="w-full h-full object-cover"
+            />
+          )}
         </div>
 
         {/* User Icon/Login */}
-        <Link to={user ? "/dashboard" : "/login"} className="text-xl text-gray-600 hover:text-pink-500">
-          <FaRegUserCircle size={28} />
-        </Link>
+        {user ? (
+          <button
+            onClick={logOut}
+            className="px-2 py-1 rounded text-sm bg-red-500 text-white flex items-center justify-center gap-1 font-semibold"
+          >
+            <BiLogOut></BiLogOut>Logout
+          </button>
+        ) : (
+          <Link
+            to={user ? "/dashboard" : "/login"}
+            className="text-xl text-gray-600 hover:text-pink-500"
+          >
+            <FaRegUserCircle size={28} />
+          </Link>
+        )}
 
         {/* Cart Dropdown */}
         <div className="dropdown dropdown-end relative">
@@ -269,5 +290,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

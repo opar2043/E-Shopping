@@ -91,7 +91,7 @@ const Collection = () => {
       <div className="w-full md:w-3/4">
         <div className="flex justify-between gap-3 px-2 md:px-6 my-3 md:my-5">
           <h2 className="text-2xl md:text-3xl font-bold flex justify-center items-center">
-            All <span className="text-gray-600">Collection</span>
+            All <span className="text-gray-600 ml-2"> Collection</span>
             <div className="border-t-2 ml-1 mt-2 border-gray-900 w-12 sm:w-16"></div>
           </h2>
           <div>

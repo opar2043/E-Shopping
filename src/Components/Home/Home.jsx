@@ -6,21 +6,15 @@ import Card from '../Collection/Card';
 import Subscribe from '../Root/Subscribe';
 import Policy from './Policy';
 import useProducts from '../Hooks/useProducts';
+import Review from '../Review/review';
+
 
 const Home = () => {
-  const [card , setCard] = useState([]);
-  const [products] = useProducts([])
-  const top= products && products.filter(fil => fil.sell== 'top')
 
-  useEffect(()=>{
-    fetch('./product.jsx')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      setCard(data)
-    })
-  },[])
-  // console.log(card);
+  const [products] = useProducts([])
+  const top= products && products.filter(fil => fil.sell== 'top');
+
+  console.log(products , 'products');
 
   return (
     <div>
@@ -45,6 +39,7 @@ const Home = () => {
          </div>
          <Policy></Policy>
          <Subscribe></Subscribe>
+         <Review></Review>
     </div>
   )
 }

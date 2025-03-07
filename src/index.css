@@ -11,4 +11,8 @@
 a.active hr{
   display: block;
   width: 28px;
+  color: palevioletred;
+}
+a.active {
+  color: rgb(223, 82, 129);
 }

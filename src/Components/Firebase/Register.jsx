@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useAxios from "../Hooks/useAxios";
 
 const Register = () => {
-  const { setUser, handleRegister } = useAuth();
+  const { setUser, handleRegister, updateData } = useAuth();
   const navigate = useNavigate();
   const axiosSecure = useAxios();
 
@@ -33,10 +33,16 @@ const Register = () => {
 
     handleRegister(email, pass)
       .then((userCredential) => {
-        const userData = userCredential.user;
-        console.log(userData);
-        setUser(userData);
 
+        updateData(name , photo)
+        .then(() => {
+          const userData = userCredential.user;
+          console.log(userData);
+          setUser(userData);
+        }).catch((error) => {
+
+        });
+        
         axiosSecure.post('/users' , info)
         .then(res => {
           Swal.fire({
@@ -62,7 +68,7 @@ const Register = () => {
 
   return (
     <div>
-      <div className="mx-auto max-w-screen-xl bg-base-300 px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-xl bg-base-300 px-4 py-16 sm:px-6 lg:px-8 mt-8 rounded-md">
         <div className="mx-auto max-w-lg">
           <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
             Get started today

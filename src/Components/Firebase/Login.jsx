@@ -56,7 +56,7 @@ const Login = () => {
 
   return (
     <div>
-      <div className="mx-auto max-w-screen-xl bg-base-200 px-4 py-16 sm:px-6 lg:px-8 ">
+      <div className="mx-auto max-w-screen-xl bg-base-200 px-4 py-16 sm:px-6 lg:px-8 mt-7 rounded-md">
         <div className="mx-auto max-w-lg text-center ">
           <h1 className="text-2xl font-bold sm:text-3xl">
             Started Shopping today!

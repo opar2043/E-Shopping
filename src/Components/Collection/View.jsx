@@ -82,6 +82,7 @@ import useProducts from "../Hooks/useProducts";
 import Swal from "sweetalert2";
 import useAxios from "../Hooks/useAxios";
 import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 const View = () => {
   const { id } = useParams();
@@ -114,6 +115,11 @@ const View = () => {
         });
       })
 
+    }
+
+
+    function addedBtn(){
+      toast.error('You Have To Login Before Adding')
     }
 
   return (
@@ -179,11 +185,17 @@ const View = () => {
             ⭐ {rating} | Sold: <span className=" rounded-lg">{sell || 'Average'} </span>
           </span>
         </button>
-        <button
+      {
+        user ?      <button
         onClick={()=>addToCart(product)}
         className="w-full bg-gray-900 text-white py-3 rounded-md transition hover:scale-105">
           Add To Cart
+        </button> :         <button
+        onClick={addedBtn}
+        className="w-full bg-gray-900 text-white py-3 rounded-md transition hover:scale-105">
+          Add To Cart
         </button>
+      }
       </div>
     </div>
   );
