@@ -10,6 +10,7 @@ import useProducts from '../Hooks/useProducts';
 const Home = () => {
   const [card , setCard] = useState([]);
   const [products] = useProducts([])
+  const top= products && products.filter(fil => fil.sell== 'top')
 
   useEffect(()=>{
     fetch('./product.jsx')
@@ -27,8 +28,20 @@ const Home = () => {
         <Title head={'Our'} head2={'Collection'} para={'Check our latest arraivals to know aboutb us!'}></Title>
          <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
             {
-              products && products.slice(0,12).map(( car , idx) => <Card key={idx}  img={car.image} price={car.price} name={car.name} id={car._id}></Card>)
+              products && products.slice(0,8).map(( car , idx) => <Card key={idx}  img={car.image} price={car.price} name={car.name} id={car._id}></Card>)
             }
+         </div>
+
+
+
+         <div>
+         <Title head={'Our'} head2={'Top Collection'} para={'Check our latest Top Collection This Week'}></Title>
+         <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
+         {
+              top && top.slice(0,4).map(( car , idx) => <Card key={idx}  img={car.image} price={car.price} name={car.name} id={car._id}></Card>)
+            }
+         </div>
+
          </div>
          <Policy></Policy>
          <Subscribe></Subscribe>

@@ -230,7 +230,7 @@ const Navbar = () => {
 
       {/* Center - Navigation Links */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal space-x-6">{links}</ul>
+        <ul className="menu menu-horizontal space-x-1">{links}</ul>
       </div>
 
       {/* Right Side - Cart & Profile */}
