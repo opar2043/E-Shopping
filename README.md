@@ -1,6 +1,6 @@
 # 🛒 E-Shopping
 
-E-Shopping is a full-stack e-commerce platform where users can **buy and sell products** seamlessly. The platform features **user and admin roles**, ensuring a smooth and secure experience for all users. Built with modern web technologies, E-Shopping delivers fast performance and real-time functionality.
+E-Shopping is a full-stack e-commerce platform where users can **buy and sell products** seamlessly. The platform features **user and admin roles**, ensuring a smooth and secure experience for all users. Built with modern web technologies, E-Shopping delivers fast performance and real-time functionality.Thogh its a running project .
 
 🔗 **Live Link:** https://vermillion-salmiakki-80f712.netlify.app/
 
