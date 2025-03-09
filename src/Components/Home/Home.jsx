@@ -28,7 +28,7 @@ const Home = () => {
 
 
 
-         <div>
+         <div className='md:mt-24'>
          <Title head={'Our'} head2={'Top Collection'} para={'Check our latest Top Collection This Week'}></Title>
          <div className='grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4'>
          {

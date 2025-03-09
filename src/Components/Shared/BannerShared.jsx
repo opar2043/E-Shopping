@@ -1,7 +1,7 @@
 const BannerShared = ({ img, head, head2 }) => {
   return (
     <div>
-      <div className="hero min-h-screen bg-white text-black px-6 sm:px-12 md:px-16 lg:px-24">
+      <div className="hero md:min-h-screen my-20 md:my-2 bg-white text-black   px-12 md:px-24 ">
         <div className="hero-content flex flex-col-reverse lg:flex-row-reverse items-center justify-between gap-8">
           {/* 📷 Image Section */}
           <div className="w-full md:w-4/5">

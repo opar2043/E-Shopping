@@ -3,15 +3,12 @@ import useAxios from "../Hooks/useAxios";
 import toast, { Toaster } from "react-hot-toast";
 
 const AddItem = () => {
+  const axiosSecure = useAxios();
 
-  const axiosSecure = useAxios()
+  const [category, setCategory] = useState("men");
+  const [rating, setRating] = useState(5);
 
-  const [category , setCategory]= useState('men')
-  const [rating , setRating]= useState(5);
-
-
-
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
     const target = e.target;
     const name = target.name.value;
@@ -25,21 +22,18 @@ const AddItem = () => {
       description,
       price,
       category,
-      rating
-    }
+      rating,
+    };
 
     console.log(products);
 
-    axiosSecure.post('/products',products)
-    .then(res => {
-      toast.success('Successfully Added The Item');
-    })
-    target.reset()
+    axiosSecure.post("/products", products).then((res) => {
+      toast.success("Successfully Added The Item");
+    });
+    target.reset();
   }
-   
 
   return (
-
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <Toaster position="top-center" />
       <div className="card bg-white w-full max-w-lg p-1 rounded-lg shadow-xl">
@@ -68,8 +62,10 @@ const AddItem = () => {
                 <label className="block text-sm font-medium text-gray-700">
                   Category
                 </label>
-                <select onChange={e => setCategory(e.target.value)} 
-                className="input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                <select
+                  onChange={(e) => setCategory(e.target.value)}
+                  className="input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                >
                   <option value="men">Men</option>
                   <option value="women">Women</option>
                   <option value="kids">Kids</option>
@@ -81,9 +77,10 @@ const AddItem = () => {
                 <label className="block text-sm font-medium text-gray-700">
                   Rating
                 </label>
-                <select 
-                onChange={e => setRating(e.target.value)}
-                className="input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                <select
+                  onChange={(e) => setRating(e.target.value)}
+                  className="input mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                >
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -130,9 +127,8 @@ const AddItem = () => {
 
             <div className="text-center">
               <button className="btn btn-neutral mt-4 w-full py-2 rounded-md bg-blue-500 text-white font-semibold hover:bg-blue-600">
-               Add Item
+                Add Item
               </button>
-             
             </div>
           </form>
         </div>

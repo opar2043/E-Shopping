@@ -1,6 +1,5 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import {
-  AiOutlineDashboard,
   AiOutlineUser,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
@@ -12,7 +11,7 @@ const Dashboard = () => {
   const isAdmin = true;
   const { handleLogout } = useAuth();
   const navigate = useNavigate();
-  
+
   function logOut() {
     handleLogout()
       .then(() => {
@@ -36,17 +35,18 @@ const Dashboard = () => {
           <ul className="space-y-3">
             {isAdmin ? (
               <>
-                {/* <NavLink
-                  to="/dashboard"
+
+                <NavLink
+                  to="/dashboard/order"
                   className={({ isActive }) =>
                     `flex items-center gap-3 p-3 rounded-lg transition ${
                       isActive ? "bg-gray-800" : "hover:bg-gray-800"
                     }`
                   }
                 >
-                  <AiOutlineDashboard size={22} />
+                  <AiOutlineShoppingCart size={22} />
                   <span>Dashboard</span>
-                </NavLink> */}
+                </NavLink>
 
                 <NavLink
                   to="/dashboard/additem"
@@ -58,18 +58,6 @@ const Dashboard = () => {
                 >
                   <BiPlusCircle size={22} />
                   <span>Add Item</span>
-                </NavLink>
-
-                <NavLink
-                  to="/dashboard/order"
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 p-3 rounded-lg transition ${
-                      isActive ? "bg-gray-800" : "hover:bg-gray-800"
-                    }`
-                  }
-                >
-                  <AiOutlineShoppingCart size={22} />
-                  <span>Orders</span>
                 </NavLink>
 
                 <NavLink
