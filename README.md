@@ -1,8 +1,60 @@
-# React + Vite
+# 🛒 E-Shopping
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-Shopping is a full-stack e-commerce platform where users can **buy and sell products** seamlessly. The platform features **user and admin roles**, ensuring a smooth and secure experience for all users. Built with modern web technologies, E-Shopping delivers fast performance and real-time functionality.
 
-Currently, two official plugins are available:
+🔗 **Live Link:** [Your Live Link Here]  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 📌 Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [API Endpoints](#api-endpoints)
+- [Configuration](#configuration)
+- [Contributors](#contributors)
+- [License](#license)
+
+---
+
+## 🚀 Features
+
+✔️ **User Authentication** (Signup/Login with Firebase)  
+✔️ **Product Listing** (Buy & Sell Products)  
+✔️ **Real-Time Database** (MongoDB + Firebase)  
+✔️ **Admin Dashboard** (Manage Users & Products)  
+✔️ **Secure Payments** (Future Enhancement)  
+✔️ **Responsive UI** (Optimized for all devices)  
+
+---
+
+## 🛠 Tech Stack
+
+| Technology      | Purpose                         |
+|----------------|---------------------------------|
+| **React.js**   | Frontend framework             |
+| **Vite**       | Fast development & build tool  |
+| **Firebase**   | Authentication & storage       |
+| **Node.js**    | Backend runtime environment    |
+| **Express.js** | Backend framework              |
+| **MongoDB**    | Database                        |
+| **Other React Libraries** | UI Components, Routing, etc. |
+
+---
+
+## ⚙️ Installation
+
+### Prerequisites
+- **Node.js** installed
+- **MongoDB** running
+- **Firebase Project** set up
+
+### Steps
+1. **Clone the repository**  
+   ```sh
+   git clone https://github.com/your-repo/e-shopping.git
+   cd e-shopping
+
