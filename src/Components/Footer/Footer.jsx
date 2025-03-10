@@ -4,10 +4,10 @@ import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer className="bg-gray-100 mt-6 text-black py-10 px-5 md:px-20">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8  text-left">
         {/* Company Info */}
         <div>
-          <h2 className="text-lg font-semibold flex justify-start gap-2 items-center"> <img src="/public/favicon.png" alt="" className='w-5 h-5' /> E-Shopping</h2>
+          <h2 className="text-lg font-semibold flex justify-start gap-2 items-center"> <img src="/public/e-shopping.jpeg" alt="" className='w-8 h-8' /> E-Shopping</h2>
           <p className="mt-2 text-sm">
             Leading the industry with innovative solutions and customer satisfaction.
           </p>

@@ -17,32 +17,32 @@ const Navbar = () => {
         <li>
           <a>Home</a>
         </li>
-        <hr className="border border-pink-500 w-8 mx-auto hidden" />
+        <hr className="md:border md:border-pink-500 w-8 mx-auto hidden" />
       </NavLink>
       <NavLink to={"/collection"}>
         <li>
           <a>Collection</a>
         </li>
-        <hr className="border border-pink-500 w-8 mx-auto hidden" />
+        <hr className="md:border md:border-pink-500  w-8 mx-auto hidden" />
       </NavLink>
       <NavLink to={"/about"}>
         <li>
           <a>About</a>
         </li>
-        <hr className="border border-pink-500 w-8 mx-auto hidden" />
+        <hr className="md:border md:border-pink-500  w-8 mx-auto hidden" />
       </NavLink>
       <NavLink to={"/contact"}>
         <li>
           <a>Contact</a>
         </li>
-        <hr className="border border-pink-500 w-8 mx-auto hidden" />
+        <hr className="md:border md:border-pink-500  w-8 mx-auto hidden" />
       </NavLink>
       {user && (
         <NavLink to={"/dashboard"}>
           <li>
             <a>Dashboard</a>
           </li>
-          <hr className="border border-pink-500 w-8 mx-auto hidden" />
+          <hr className="md:border md:border-pink-500  w-8 mx-auto hidden" />
         </NavLink>
       )}
     </>
@@ -60,7 +60,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-6">
+    <div className="navbar bg-base-100 shadow-md md:px-6">
       {/* Left Side - Brand & Mobile Menu */}
       <div className="navbar-start">
         <div className="dropdown lg:hidden">
@@ -82,14 +82,14 @@ const Navbar = () => {
           </button>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content font-semibold mt-3 w-52 p-2 shadow bg-white rounded-lg z-10"
+            className="menu menu-sm dropdown-content t font-semibold  w-52 p-2 shadow bg-white rounded-lg z-10 "
           >
             {links}
           </ul>
         </div>
           <div className="flex justify-center items-center gap-2">
-          <img src="/public/favicon.png" alt="" className=" w-3 md:w-5" />
-        <NavLink to="/" className="text-lg md:text-2xl font-bold text-pink-500">
+          <img src="/public/e-shopping.jpeg" alt="" className=" w-4 md:w-8" />
+        <NavLink to="/" className="text-sm md:text-2xl font-bold text-pink-500">
           E-Shopping
         </NavLink>
           </div>
