@@ -1,4 +1,3 @@
-
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import useAuth from "../Hooks/useAuth";
@@ -87,12 +86,15 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-          <div className="flex justify-center items-center gap-2">
+        <div className="flex justify-center items-center gap-2">
           <img src="/public/e-shopping.jpeg" alt="" className=" w-4 md:w-8" />
-        <NavLink to="/" className="text-sm md:text-2xl font-bold text-pink-500">
-          E-Shopping
-        </NavLink>
-          </div>
+          <NavLink
+            to="/"
+            className="text-sm md:text-2xl font-bold text-pink-500"
+          >
+            E-Shopping
+          </NavLink>
+        </div>
       </div>
 
       {/* Center - Navigation Links */}

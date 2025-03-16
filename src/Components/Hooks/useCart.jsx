@@ -9,7 +9,6 @@ const useCart = () => {
         setCart(data)
       })
      },[])
-
      return [cart]
 }
 
