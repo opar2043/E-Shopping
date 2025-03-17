@@ -11,32 +11,33 @@ import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import { GoCodeReview } from "react-icons/go";
 const Review = () => {
-  // const [review] = useReview([]);
+  const [review] = useReview([]);
   const {user} = useAuth();
   const [rating , setrating] = useState(5);
-  const [review, setReview] = useState([]);
+  // const [review, setReview] = useState([]);
 
   const axiosSecure = useAxios();
 
 
-  useEffect(() => {
-    fetch("product.jsx")
-      .then((res) => res.json())
-      .then((data) => {
-        setReview(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("product.jsx")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setReview(data);
+  //     });
+  // }, []);
 
   console.log(review);
 
   function handleSubmit(e){
     e.preventDefault()
     const review = e.target.review.value;
+    const ratingInt = parseFloat(rating) 
     const obj = {
       name : user?.displayName || 'Rijoan Rashid',
       image: user?.photoURL || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp",
       review,
-      rating
+      rating : ratingInt
     }
 
 
@@ -77,7 +78,7 @@ const Review = () => {
                 </label>
                 <select onChange={e=> setrating(e.target.value)} className="select select-bordered" required>
                   <option value="">Select a rating</option>
-                  <option value="1">1 - Poor</option>
+                  <option value='1'>1 - Poor</option>
                   <option value="2">2 - Fair</option>
                   <option value="3">3 - Good</option>
                   <option value="4">4 - Very Good</option>

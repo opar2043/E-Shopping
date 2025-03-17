@@ -1,6 +1,6 @@
 import axios from "axios"
 const axiosSecure = axios.create({
-    baseURL: 'https://e-shoping-server.vercel.app'
+    baseURL: 'https://new-shoping-kappa.vercel.app'
 })
 
 

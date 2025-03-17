@@ -6,7 +6,7 @@ const useProducts = () => {
     const axiosSecure = useAxios()
      const [products , setProducts] = useState([]);
      useEffect(()=>{
-      fetch('https://e-shoping-server.vercel.app/products')
+      fetch('https://new-shoping-kappa.vercel.app/products')
       .then(res => res.json())
       .then(data => {
         setProducts(data)

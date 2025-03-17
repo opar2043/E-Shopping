@@ -4,7 +4,7 @@ const useUser = () => {
  
      const [user , setUser] = useState([]);
      useEffect(()=>{
-      fetch('https://e-shoping-server.vercel.app/users')
+      fetch('https://new-shoping-kappa.vercel.app/users')
       .then(res => res.json())
       .then(data => {
         setUser(data)
