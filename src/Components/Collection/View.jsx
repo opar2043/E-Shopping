@@ -86,7 +86,7 @@ import toast from "react-hot-toast";
 
 const View = () => {
   const { id } = useParams();
-  const [products] = useProducts([]) || [];
+  const [products , refetch , isLoading] = useProducts() || [];
   const product = products.find((pro) => pro._id === id);
   const axiosSecure = useAxios()
 
@@ -113,6 +113,7 @@ const View = () => {
           showConfirmButton: false,
           timer: 1500
         });
+         refetch()
       })
 
     }

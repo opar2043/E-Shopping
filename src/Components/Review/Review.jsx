@@ -11,7 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import { GoCodeReview } from "react-icons/go";
 const Review = () => {
-  const [review] = useReview([]);
+  const [review , refetch , isLoading] = useReview([]);
   const {user} = useAuth();
   const [rating , setrating] = useState(5);
   // const [review, setReview] = useState([]);
@@ -44,6 +44,7 @@ const Review = () => {
     axiosSecure.post('/reviews',obj)
     .then(res => {
       toast.success('Your Review Added');
+      refetch()
       return
     })
     .catch(res => {

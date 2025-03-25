@@ -4,7 +4,7 @@ import Card from "./Card";
 import useProducts from "../Hooks/useProducts";
 
 const Collection = () => {
-  const [products] = useProducts([]);
+  const [products , refetch , isLoading] = useProducts([]);
   const [card, setCard] = useState([]);
   useEffect(() => {
     setCard(products);

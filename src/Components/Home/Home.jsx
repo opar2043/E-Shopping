@@ -8,10 +8,10 @@ import useProducts from "../Hooks/useProducts";
 import Review from "../Review/review";
 
 const Home = () => {
-  const [products] = useProducts([]);
+  const [products , refetch , isLoading ] = useProducts();
   const top = products && products.filter((fil) => fil.sell == "top");
 
-  console.log(products, "products");
+
 
   return (
     <div>
@@ -53,6 +53,7 @@ const Home = () => {
                   price={car.price}
                   name={car.name}
                   id={car._id}
+                  refetch = {refetch}
                 ></Card>
               ))}
         </div>

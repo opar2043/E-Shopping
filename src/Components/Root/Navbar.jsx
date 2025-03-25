@@ -6,7 +6,7 @@ import { BiCart, BiLogOut } from "react-icons/bi";
 
 const Navbar = () => {
   const { user, handleLogout } = useAuth();
-  const [carts] = useCart([]);
+  const [carts, refetch, isLoading] = useCart([]);
   const cart = carts.filter((car) => car.email === user?.email);
   const navigate = useNavigate();
 
