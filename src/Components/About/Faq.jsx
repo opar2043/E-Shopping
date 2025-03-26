@@ -8,7 +8,7 @@ const Faq = () => {
       </h2>
 
       {/* Electronics Category */}
-      <div className="collapse collapse-arrow  bg-white text-slate-900 border border-slate-900">
+      <div className="collapse collapse-arrow  bg-white text-slate-900 border border-gray-300">
         <input type="radio" name="faq-accordion" defaultChecked />
         <div className="collapse-title text-xl font-semibold">
           🔋 What is the warranty policy for electronics?
@@ -21,7 +21,7 @@ const Faq = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow bg-white text-slate-900 border border-slate-900">
+      <div className="collapse collapse-arrow bg-white text-slate-900 border border-gray-300">
         <input type="radio" name="faq-accordion" />
         <div className="collapse-title text-xl font-semibold">
           🚚 How fast is delivery for tech products?
@@ -35,7 +35,7 @@ const Faq = () => {
       </div>
 
       {/* Fashion Category */}
-      <div className="collapse collapse-arrow bg-white text-slate-900 border border-slate-900">
+      <div className="collapse collapse-arrow bg-white text-slate-900 border border-gray-300">
         <input type="radio" name="faq-accordion" />
         <div className="collapse-title text-xl font-semibold">
           👕 Can I return a fashion item if it doesn’t fit?
@@ -48,7 +48,7 @@ const Faq = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow bg-white text-slate-900 border border-slate-900">
+      <div className="collapse collapse-arrow bg-white text-slate-900 border border-gray-300">
         <input type="radio" name="faq-accordion" />
         <div className="collapse-title text-xl font-semibold">
           🎨 Do you offer customization for clothing?
@@ -62,7 +62,7 @@ const Faq = () => {
       </div>
 
       {/* Home Essentials Category */}
-      <div className="collapse collapse-arrow bg-white text-slate-900 border border-slate-900">
+      <div className="collapse collapse-arrow bg-white text-slate-900 border border-gray-300">
         <input type="radio" name="faq-accordion" />
         <div className="collapse-title text-xl font-semibold">
           🏡 Are home essentials eco-friendly?
@@ -75,7 +75,7 @@ const Faq = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow bg-white text-slate-900 border border-slate-900">
+      <div className="collapse collapse-arrow bg-white text-slate-900 border border-gray-300">
         <input type="radio" name="faq-accordion" />
         <div className="collapse-title text-xl font-semibold">
           🔥 What are the best-selling home products?

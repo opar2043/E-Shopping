@@ -6,11 +6,15 @@ import {
 import { BiLogOut, BiPlusCircle, BiUnite } from "react-icons/bi";
 import { FiHome, FiInfo, FiPhoneCall, FiGrid } from "react-icons/fi";
 import useAuth from "../Hooks/useAuth";
+import useUser from "../Hooks/useUser";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const isAdmin = false;
   const { handleLogout } = useAuth();
   const navigate = useNavigate();
+
+  const [user] = useUser()
+   const {user : userEmail} = useAuth()
 
   function logOut() {
     handleLogout()
@@ -22,6 +26,8 @@ const Dashboard = () => {
         console.error("Error signing out:", error);
       });
   }
+
+  console.log(user);
 
   return (
     <div className=" bg-gray-100 flex flex-col md:flex-row">

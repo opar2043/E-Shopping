@@ -4,7 +4,7 @@ import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
 
 const Item = () => {
-  const [products] = useProducts();
+  const [products , refetch , isLoading] = useProducts();
   const axiosSecure = useAxios();
 
   function handleDelete(id) {
@@ -20,6 +20,7 @@ const Item = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/products/${id}`).then(() => {
           toast.error("Successfully Deleted");
+        refetch()
         });
       }
     });
