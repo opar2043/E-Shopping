@@ -6,7 +6,7 @@ import useAuth from "../../Hooks/useAuth";
 import { FaCoins, FaEnvelope, FaTrash } from "react-icons/fa";
 
 const Order = () => {
-  const [cart] = useCart([]) || [];
+  const [cart , refetch , isLoading] = useCart([]) || [];
   const axiosSecure = useAxios();
   const { user } = useAuth() || {};
 
@@ -27,6 +27,7 @@ const Order = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/carts/${id}`).then(() => {
           toast.error("Successfully Deleted");
+          refetch()
         });
       }
     });

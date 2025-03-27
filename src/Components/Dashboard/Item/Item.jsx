@@ -4,7 +4,7 @@ import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
 
 const Item = () => {
-  const [products , refetch , isLoading] = useProducts();
+  const [products, refetch, isLoading] = useProducts();
   const axiosSecure = useAxios();
 
   function handleDelete(id) {
@@ -20,15 +20,17 @@ const Item = () => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/products/${id}`).then(() => {
           toast.error("Successfully Deleted");
-        refetch()
+          refetch();
         });
       }
     });
   }
-  
+
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">All Products</h2>
+      <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        All Products
+      </h2>
       <Toaster position="top-center" reverseOrder={false} />
       <div className="overflow-x-auto shadow-lg rounded-lg">
         <table className="table-auto w-full bg-white shadow-md rounded-lg overflow-hidden">
