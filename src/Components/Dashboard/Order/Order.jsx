@@ -26,7 +26,7 @@ const Order = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/carts/${id}`).then(() => {
-          toast.error("Successfully Deleted");
+          toast.error("Deleted");
           refetch()
         });
       }
