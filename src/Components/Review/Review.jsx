@@ -73,6 +73,10 @@ const Review = () => {
           {/* Form start */}
           <div className="card bg-base-100 w-full shrink-0 shadow-2xl justify-center border">
             <form onSubmit={handleSubmit} className="card-body w-full">
+            <form method="dialog">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Rating</span>
